@@ -1,0 +1,41 @@
+﻿<div id="page">
+    <div id="content">
+        <div id="footer">
+
+            <ul class="navigation nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                @*<li>@Html.ActionLink("About Us", "About", "Home")</li>*@
+                <li>@Html.ActionLink("Search", "search", "Store")</li>
+                @if (Session["LoginCredentials"] == null)
+                {
+                    <li>@Html.ActionLink("Recommendations", "recommendations", "Home")</li>
+                    <li>@Html.ActionLink("Login", "SignUp", "Login")</li>
+                }
+                else
+                {
+                    <li>@Html.ActionLink("Add Store", "AddStore", "Store")</li>
+                    <li>@Html.ActionLink("Add Product", "AddProduct", "Store")</li>
+                    <li>@Html.ActionLink("Logout", "LogOff", "Login")</li>
+                }
+            </ul>
+            <span>&copy;2011 <a href="index.html">Frost Sweets Gourmet Ice Cream</a> All Rights Reserved</span>
+            <ul class="connect">
+                <li>
+                    FOLLOW US:
+                </li>
+                <li>
+                    <a class="facebook" href="https://www.facebook.com/groups/119442578121701/">&nbsp;</a>
+                </li>
+                <li>
+                    <a class="twitter" href="https://twitter.com/icecream">&nbsp;</a>
+                </li>
+                <li>
+                    <a class="email" href="http://www.freewebsitetemplates.com/misc/contact">&nbsp;</a>
+                </li>
+                <li>
+                    <a class="googleplus" href="http://www.freewebsitetemplates.com/go/googleplus/">&nbsp;</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

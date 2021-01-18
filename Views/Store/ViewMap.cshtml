@@ -1,0 +1,79 @@
+﻿@model IEnumerable<WebApplication1.Models.IceCream>
+<!DOCTYPE html>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+    <title>Flavors - Website Template</title>
+    <meta charset="utf-8">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbVghI-JaYSruWmZI3yAt2YoZGdOqwgZk&callback=initMap"></script>
+    <script>
+        var geocoder;
+        var map;
+        var address = "Bnei Brak, Israel";
+        function initMap() {
+            console.log("asd");
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 18,
+                center: { lat: -34.397, lng: 150.644 }
+            });
+            geocoder = new google.maps.Geocoder();
+            codeAddress(geocoder, map);
+        }
+
+        function codeAddress(geocoder, map) {
+            geocoder.geocode({ 'address': address }, function (results, status) {
+                if (status === 'OK') {
+                    console.log("asd");
+                    map.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+    </script>
+
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="../../Content/ie6.css" rel="stylesheet" />
+    <link href="../../Content/ie7.css" rel="stylesheet" />
+    <link href="../../Content/style.css" rel="stylesheet" />
+
+</head>
+<body onload="initMap()">
+    <div id="page">
+
+        <div id="content">
+            <!-- start of class content -->
+            <div class="content">
+                <!-- start inner page content box background -->
+                <div class="header">
+                    <div class="footer">
+                        <div class="body">
+                            <div>
+                                <h2>ViewMap</h2>
+                                <div id="map" style="width:450px;height:370px;"></div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- end of footer-->
+                </div>
+                <!-- end inner page content box background -->
+            </div>
+            <!-- end of class content -->
+        </div>
+        <!-- end of ID content-->
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+

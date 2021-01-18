@@ -1,0 +1,115 @@
+﻿@model IEnumerable<WebApplication1.Models.IceCreamParlor>
+
+@{ViewBag.Title = "Index"; }
+<!DOCTYPE html>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+    <title>Flavors - Website Template</title>
+    <meta charset="utf-8">
+
+
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="../../Content/ie6.css" rel="stylesheet" />
+    <link href="../../Content/ie7.css" rel="stylesheet" />
+    <link href="../../Content/style.css" rel="stylesheet" />
+
+
+</head>
+<body>
+    <div id="page">
+
+        <div id="content">
+            <!-- start of class content -->
+            <div class="content">
+                <!-- start inner page content box background -->
+                <div class="header">
+                    <div class="footer">
+                        <div class="body">
+                            <form action="AddStoreProduct" method="post">
+                                <!-- start of section -->
+                                <div class="section">
+                                    <!-- start of delivery -->
+                                    <div class="delivery">
+                                        <h1>Add Product</h1>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <label for="NdbNumber">
+                                                        <span><b>Product Id: </b></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="NdbNumber" id="NdbNumber" value="">
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label for="storeId">
+                                                        <span><b>Store Adress: </b></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    @*<input type="text" name="storeId" id="storeId" value="">*@
+                                                    <label for="storeId" >
+                                                        <select name="storeAddress" id="storeAddress" >
+                                                            @foreach (var item in Model)
+                                                            {
+                                                            <option>
+                                                                <span>@item.Address</span>
+                                                            </option>
+                                                            }
+                                                        </select>
+                                                        
+                                                    </label>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label for="flavor">
+                                                        <span><b>Flavor (Description): </b></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="flavor" id="flavor" value="">
+
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label for="image">
+                                                        <span><b>Upload image (copy web url): </b></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="image" id="image" value="">
+
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <br />
+                                        <div id="connect">
+                                            <input type="submit" value="Add" />
+                                        </div>
+
+                                        <br /> <br /><br />
+                                    </div>
+                                    <!-- end of delivery -->
+                                </div>
+                                <!-- end of section -->
+                            </form>
+                        </div>
+                    </div>
+                    <!-- end of footer-->
+                </div>
+                <!-- end inner page content box background -->
+            </div>
+            <!-- end of class content -->
+        </div>
+        <!-- end of ID content-->
+    </div>
+</body>
+</html>

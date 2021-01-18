@@ -1,0 +1,103 @@
+﻿@model WebApplication1.Models.AdminDetails
+
+<!DOCTYPE html>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+    <title>About - Ice Cream Website Template</title>
+    <meta charset="utf-8">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="../../Content/ie6.css" rel="stylesheet" />
+    <link href="../../Content/ie7.css" rel="stylesheet" />
+    <link href="../../Content/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="page">
+        <div id="content">
+            <!-- start of class content -->
+            <div class="content">
+                <!-- start inner page content box background -->
+                <div class="header">
+                    <div class="footer">
+                        <div class="body">
+                            <form action="AddStoreToDB" method="post">
+                                <!-- start of section -->
+                                <div class="section">
+
+                                    <h2>Hello,</h2>
+                                    <h2>If you have access Permissions you can log in and<br /> change, add or delete ice cream data.</h2>
+                                    <!--
+                                        <div class="right">
+                                            <button>Add Product</button>
+                                    </div>
+                                    -->
+                                    <!-- start of delivery -->
+
+                                    <div class="delivery">
+                                        @*<a href="#"><img src="~/images/strawberry-ice-cream.jpg" width="648" height="312" alt=""></a>*@
+                                        <br /><br />
+                                        <table>
+                                            <tr><b>Add Store:</b></tr>
+                                            <tr>
+                                                <td>
+                                                    <label for="Store">
+                                                        <span><b>Id: </b></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="Id" id="Id" value="">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label for="Store">
+                                                        <span><b>Address: </b></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="Address" id="Address" value="">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label for="Store">Pick an image:</label>
+                                                </td>
+                                                <td>
+                                                    <input type="file" name="uploadedfile" class="form-control-file" id="exampleFormControlFile1">
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <label for="Store">
+                                                        <span><b>Phone Number: </b></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="PhoneNumber" id="PhoneNumber" value="">
+                                                </td>
+                                            </tr>
+
+                                        </table>
+                                        <br />
+                                        <div id="connect2">
+                                            <input type="submit" value="Add" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <!-- end inner page content box background -->
+                </div>
+                <!-- end of class content -->
+            </div>
+            <!-- end of ID content-->
+        </div>
+    </div>
+</body>
+</html>
+
+
+

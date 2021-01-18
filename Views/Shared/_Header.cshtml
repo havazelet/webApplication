@@ -1,0 +1,25 @@
+﻿<div id="page">
+    <div id="content">
+        <div class="container">
+        </div>
+
+        <div id="header" class="navbar-collapse collapse">
+            <ul class="navigation nav navbar-nav">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                @*<li>@Html.ActionLink("About Us", "About", "Home")</li>*@
+                <li>@Html.ActionLink("Search", "search", "Store")</li>
+                @if (Session["LoginCredentials"] == null)
+                {
+                    <li>@Html.ActionLink("Recommendations", "recommendations", "Home")</li>
+                    <li>@Html.ActionLink("Login", "SignUp", "Login")</li>
+                }
+                else
+                {
+                    <li>@Html.ActionLink("Add Store", "AddStore", "Store")</li>
+                    <li>@Html.ActionLink("Add Product", "AddProduct", "Store")</li>
+                    <li>@Html.ActionLink("Logout", "LogOff", "Login")</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

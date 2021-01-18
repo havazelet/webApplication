@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+    <title>Contant Us - Website Template</title>
+    <meta charset="utf-8">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <!--<link href="../../Content/ie6.css" rel="stylesheet" />
+    <link href="../../Content/ie7.css" rel="stylesheet" />
+    <link href="../../Content/style.css" rel="stylesheet" />-->
+    <script type="text/javascript">
+        function getProducts() {
+            var serviceURL = '/Home/getProducts';
+            var storeId = document.getElementById("storeId").innerHTML.toString();
+            $.ajax({
+                type: "POST",
+                url: serviceURL,
+                data: "{'storeId': 'storeId' }",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: successFunc,
+                error: errorFunc
+            });
+
+            function successFunc(data, status) {
+
+                var select = document.getElementById("productId");
+                select.innerText = null;
+                var items = '';
+                $.each(data, function (i, item) {
+                    var option = document.createElement('option');
+                    option.text = item.Description;
+                    option.value = item.ProductId;
+                    select.add(option, i);
+                });
+
+            }
+
+            function errorFunc() {
+                alert('error');
+            }
+        }
+    </script>
+
+    @{ViewBag.Title = "Index"; }
+</head>
+
+<body>
+    <div id="page">
+        <div id="content">
+            <!-- start of header -->
+            <div class="container">
+            </div>
+            <!-- start of class content -->
+            <div class="content">
+                <!-- start inner page content box background -->
+                <div class="header">
+                    <div class="footer">
+                        <div class="body">
+                            <!-- start of body -->
+                            <h1>Send Us a Quick Message</h1>
+                            @if (ViewBag.Message == "error")
+                            {
+                                <script type="text/javascript">
+                                window.onload = function () {
+                                    alert("@ViewBag.Message");
+                                };
+                                </script>
+                            }
+
+                            <form action="AddRecommendation" method="post">
+                                <ul class="contact">
+                                    <li class="first">
+                                        <label for="first-name">First Name*</label>
+                                        <input type="text" value="" name="FirstName" id="first-name">
+                                        <label for="last-name">Last Name*</label>
+                                        <input type="text" value="" name="LastName" id="last-name">
+                                        <label for="email-address">Email Address*</label>
+                                        <input type="text" value="" name="Email" id="email-address">
+                                        <label for="storeId">Store Id*</label>
+                                        <span>
+                                            <select name="storeId" id="storeId" onchange="getProducts()">
+                                                <option>select-store...</option>
+                                                @foreach (var item in Model)
+                                                {
+                                                    <option>
+                                                        <span>@item.Address-@item.Id</span>
+                                                    </option>
+                                                }
+                                            </select>
+                                        </span>
+
+                                        <label for="productId">Product Id*</label>
+                                      
+                                            <select name="productId" id="productId">
+                                                <option>select-product...</option>
+                                            </select>
+                                       
+
+                                        <tr>
+                                            <td>
+                                                <label>
+                                                    <span><b>rate:</b></span>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label for="rate">
+                                                    <span class="city">Rate:</span>
+                                                    <select name="Rate" id="Rate">
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                        <option>4</option>
+                                                        <option>5</option>
+                                                    </select>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label for="Image">
+                                                    <span class="city">Image (Web url):</span>
+                                                    <input name="Image" id="Image">
+                                                </label>
+                                            </td>
+                                        </tr>
+
+                                    </li>
+                                    <li class="last">
+                                        <label for="message">Message*</label>
+                                        <textarea name="Message" id="message"></textarea>
+                                        <input type="submit" value="">
+                                    </li>
+                                </ul>
+
+                                <br />  <br /> <br />
+                                <h1>Contact Us</h1>
+                                <ul class="connect">
+                                    <li>
+                                        <h2 class="phone">Call Us</h2>
+                                        <span>755-811-4255</span><span>9am - 5pm CST Monday - Friday</span>
+                                    </li>
+                                    <li>
+                                        <h2 class="email">Email Us</h2>
+                                        <span><a href="mailto:info@frostysweets.com">info@frostysweets.com</a></span>
+                                    </li>
+                                    <li>
+                                        <h2 class="home">Visit Us</h2>
+                                        <span>3550 Breadhouse Avenue Brooklyn, Newyork 45628</span>
+                                    </li>
+                                    <li>
+                                        <h2 class="dollor">For Business Orders</h2>
+                                        <span><a href="mailto:sales@frostysweets.com">sales@frostysweets.com</a></span><span>755-811-4255</span>
+                                    </li>
+                                </ul>
+
+                            </form>
+
+                        </div>
+                        <!-- end of body -->
+                    </div>
+                </div>
+                <!-- end inner page content box background -->
+            </div>
+            <!-- end of class content -->
+        </div>
+        <!-- end of ID content-->
+    </div>
+</body>
+</html>

@@ -1,0 +1,179 @@
+﻿@model IEnumerable<WebApplication1.Models.IceCream>
+<!DOCTYPE html>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+    <title>Flavors - Website Template</title>
+    <meta charset="utf-8">
+
+
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="../../Content/ie6.css" rel="stylesheet" />
+    <link href="../../Content/ie7.css" rel="stylesheet" />
+    <link href="../../Content/style.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div id="page">
+
+        <div id="content">
+            <!-- start of class content -->
+            <div class="content">
+                <!-- start inner page content box background -->
+                <div class="header">
+                    <div class="footer">
+                        <div class="body">
+                            <form action="Search" method="post">
+                                <!-- start of section -->
+                                <div class="section">
+                                    <!-- start of delivery -->
+                                    <div class="delivery">
+                                        <h1>search icecream</h1>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <label for="flavor">
+                                                        <span><b>flavor: </b></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="flavor" id="flavor" value="">
+
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>
+                                                        <span><h3 style="text-align:center">Or:</h3></span>
+                                                    </label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>
+                                                        <span><b>Energy:</b></span>
+                                                    </label>
+                                                </td>
+
+                                                <td>
+                                                    <label for="energy">
+                                                        <input type="number" name="energy" id="energy" value="">
+
+                                                    </label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>
+                                                        <span><b>Proteins:</b></span>
+                                                    </label>
+                                                </td>
+
+                                                <td>
+                                                    <label for="proteins">
+                                                        <input type="number" name="proteins" id="proteins" value="">
+
+                                                    </label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label>
+                                                        <span><b>Lipid</b></span>
+                                                    </label>
+                                                </td>
+
+                                                <td>
+                                                    <label for="fats">
+                                                        <input type="number" name="lipid" id="lipid" value="">
+                                                    </label>
+                                                </td>
+                                            </tr>
+
+                                        </table>
+                                        <br />
+                                        <div id="connect">
+                                            <input type="submit" value="Search" />
+                                        </div>
+
+                                        <br /> <br /><br />
+                                        @if (Model != null)
+                                        {
+                                            <h1>Featured stores</h1>
+                                            <table>
+                                                <tr>
+                                                    <th>
+                                                        <span><b>store </b></span>
+                                                    </th>
+                                                    <th>
+                                                        <span><b>flavor </b></span>
+                                                    </th>
+                                                    @*<th>
+                                                        <span><b>rate </b></span>
+                                                    </th>*@
+                                                    <th>
+                                                        <span><b>calories </b></span>
+                                                    </th>
+                                                    <th>
+                                                        <span><b>proteins </b></span>
+                                                    </th>
+                                                    <th>
+                                                        <span><b>fats </b></span>
+                                                    </th>
+                                                    <th>
+                                                        <span><b>map </b></span>
+                                                    </th>
+
+                                                </tr>
+
+                                                @foreach (var item in Model)
+                                                {
+                                                <tr>
+                                                    <td>
+                                                        <span>@item.StoreAddress</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>@item.Description</span>
+                                                    </td>
+                                                    @*<td>
+                                                        <span><b>@item.Rate </b></span>
+                                                    </td>*@
+                                                    <td>
+                                                        <span><b>@item.Energy </b></span>
+                                                    </td>
+                                                    <td>
+                                                        <span><b>@item.Protein </b></span>
+                                                    </td>
+                                                    <td>
+                                                        <span><b>@item.Lipid </b></span>
+                                                    </td>
+                                                    <td>
+                                                        <ul>
+                                                            <li>@Html.ActionLink("View map", "ViewMap", "Store")</li>
+                                                        </ul>
+
+                                                    </td>
+                                                </tr>
+                                                }
+                                            </table>
+                                        }   else { <h1>NO RESULTS</h1>}
+                                    </div>
+                                    <!-- end of delivery -->
+
+
+                                </div>
+                                <!-- end of section -->
+                            </form>
+                        </div>
+                    </div>
+                    <!-- end of footer-->
+                </div>
+                <!-- end inner page content box background -->
+            </div>
+            <!-- end of class content -->
+        </div>
+        <!-- end of ID content-->
+    </div>
+</body>
+</html>
